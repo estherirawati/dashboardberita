@@ -1,0 +1,71 @@
+{
+  "entities": {
+    "post": {
+      "title": "Post",
+      "description": "Metrik kinerja postingan Instagram dan metadata evaluasi dari Beritajatim",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "caption": { "type": "string" },
+        "url": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "likes": { "type": "integer" },
+        "comments": { "type": "integer" },
+        "views": { "type": "integer" },
+        "engagementRate": { "type": "number" },
+        "category": { "type": "string" },
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "statusEvaluasi": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "isViral": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "caption", "likes", "comments", "category", "publishedAt", "statusEvaluasi"]
+    },
+    "note": {
+      "title": "Editorial Note",
+      "description": "Catatan editorial real-time dan komentar koordinasi jurnalis untuk postingan tertentu",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "postId": { "type": "string" },
+        "userId": { "type": "string" },
+        "username": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "postId", "userId", "username", "content", "createdAt"]
+    },
+    "announcement": {
+      "title": "Editorial Announcement",
+      "description": "Pengumuman papan informasi redaksi yang diperbarui secara real-time",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "username": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "important": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "username", "title", "content", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/posts/{postId}": {
+      "schema": "post",
+      "description": "Koleksi data postingan Instagram Beritajatim dengan status verifikasi dan evaluasi"
+    },
+    "/posts/{postId}/notes/{noteId}": {
+      "schema": "note",
+      "description": "Kolaborasi diskusi jurnalis beritajatim mengenai post tersebut"
+    },
+    "/announcements/{announcementId}": {
+      "schema": "announcement",
+      "description": "Papan pengumuman internal Redaksi Beritajatim"
+    }
+  }
+}

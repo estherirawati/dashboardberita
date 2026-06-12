@@ -1,0 +1,6 @@
+{
+  "name": "Dashboard Instagram Beritajatim",
+  "description": "Dashboard tren popularitas postingan Instagram beritajatim dengan analisis performa mingguan, notifikasi viral, perbandingan kategori, ekspor PDF, dan koordinasi redaksi real-time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
